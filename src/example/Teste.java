@@ -2,7 +2,8 @@ package example;
 
 public class Teste {
 
-	public void realizaTeste() {
-		
+	public boolean realizaTeste() {
+		return false;
 	}
 }
+
