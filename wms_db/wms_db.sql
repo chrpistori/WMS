@@ -66,7 +66,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `wms_db`.`banco`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wms_db`.`banco` (
-  `id_banco` INT(11) NOT NULL COMMENT '',
+  `id_banco` INT(11) NOT NULL AUTO_INCREMENT COMMENT '',
   `nome_banco` VARCHAR(100) NOT NULL COMMENT '',
   PRIMARY KEY (`id_banco`)  COMMENT '')
 ENGINE = InnoDB
