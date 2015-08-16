@@ -8,7 +8,7 @@ public class CrudTest {
 	public static void main(String[] args) {
 		
 		Banco bradesco = new Banco();
-		bradesco.setNomeBanco("Banco do Brasil");
+		bradesco.setNomeBanco("Bradesco");
 		
 		BancoController controller = new BancoController();
 		controller.salvar(bradesco);

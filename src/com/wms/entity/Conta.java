@@ -17,7 +17,6 @@ public class Conta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_conta")
 	private int idConta;
 
@@ -51,6 +50,30 @@ public class Conta implements Serializable {
 	//bi-directional many-to-one association to AlertaVencimento
 	@OneToMany(mappedBy="conta")
 	private List<AlertaVencimento> alertaVencimentos;
+
+	//bi-directional many-to-one association to Anexo
+	@OneToMany(mappedBy="conta")
+	private List<Anexo> anexos;
+
+	//bi-directional many-to-one association to Cheque
+	@OneToMany(mappedBy="conta")
+	private List<Cheque> cheques;
+
+	//bi-directional many-to-many association to DespesaGeral
+	@ManyToMany(mappedBy="contas")
+	private List<DespesaGeral> despesaGerals;
+
+	//bi-directional many-to-many association to Funcionario
+	@ManyToMany(mappedBy="contas")
+	private List<Funcionario> funcionarios;
+
+	//bi-directional many-to-one association to Lancamento
+	@OneToMany(mappedBy="conta")
+	private List<Lancamento> lancamentos;
+
+	//bi-directional many-to-one association to ParcelaCartaoCredito
+	@OneToMany(mappedBy="conta")
+	private List<ParcelaCartaoCredito> parcelaCartaoCreditos;
 
 	public Conta() {
 	}
@@ -155,6 +178,110 @@ public class Conta implements Serializable {
 		alertaVencimento.setConta(null);
 
 		return alertaVencimento;
+	}
+
+	public List<Anexo> getAnexos() {
+		return this.anexos;
+	}
+
+	public void setAnexos(List<Anexo> anexos) {
+		this.anexos = anexos;
+	}
+
+	public Anexo addAnexo(Anexo anexo) {
+		getAnexos().add(anexo);
+		anexo.setConta(this);
+
+		return anexo;
+	}
+
+	public Anexo removeAnexo(Anexo anexo) {
+		getAnexos().remove(anexo);
+		anexo.setConta(null);
+
+		return anexo;
+	}
+
+	public List<Cheque> getCheques() {
+		return this.cheques;
+	}
+
+	public void setCheques(List<Cheque> cheques) {
+		this.cheques = cheques;
+	}
+
+	public Cheque addCheque(Cheque cheque) {
+		getCheques().add(cheque);
+		cheque.setConta(this);
+
+		return cheque;
+	}
+
+	public Cheque removeCheque(Cheque cheque) {
+		getCheques().remove(cheque);
+		cheque.setConta(null);
+
+		return cheque;
+	}
+
+	public List<DespesaGeral> getDespesaGerals() {
+		return this.despesaGerals;
+	}
+
+	public void setDespesaGerals(List<DespesaGeral> despesaGerals) {
+		this.despesaGerals = despesaGerals;
+	}
+
+	public List<Funcionario> getFuncionarios() {
+		return this.funcionarios;
+	}
+
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
+	}
+
+	public List<Lancamento> getLancamentos() {
+		return this.lancamentos;
+	}
+
+	public void setLancamentos(List<Lancamento> lancamentos) {
+		this.lancamentos = lancamentos;
+	}
+
+	public Lancamento addLancamento(Lancamento lancamento) {
+		getLancamentos().add(lancamento);
+		lancamento.setConta(this);
+
+		return lancamento;
+	}
+
+	public Lancamento removeLancamento(Lancamento lancamento) {
+		getLancamentos().remove(lancamento);
+		lancamento.setConta(null);
+
+		return lancamento;
+	}
+
+	public List<ParcelaCartaoCredito> getParcelaCartaoCreditos() {
+		return this.parcelaCartaoCreditos;
+	}
+
+	public void setParcelaCartaoCreditos(List<ParcelaCartaoCredito> parcelaCartaoCreditos) {
+		this.parcelaCartaoCreditos = parcelaCartaoCreditos;
+	}
+
+	public ParcelaCartaoCredito addParcelaCartaoCredito(ParcelaCartaoCredito parcelaCartaoCredito) {
+		getParcelaCartaoCreditos().add(parcelaCartaoCredito);
+		parcelaCartaoCredito.setConta(this);
+
+		return parcelaCartaoCredito;
+	}
+
+	public ParcelaCartaoCredito removeParcelaCartaoCredito(ParcelaCartaoCredito parcelaCartaoCredito) {
+		getParcelaCartaoCreditos().remove(parcelaCartaoCredito);
+		parcelaCartaoCredito.setConta(null);
+
+		return parcelaCartaoCredito;
 	}
 
 }

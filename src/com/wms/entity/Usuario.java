@@ -3,6 +3,7 @@ package com.wms.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -15,7 +16,6 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idUsuario;
 
 	private String bairro;
@@ -44,6 +44,10 @@ public class Usuario implements Serializable {
 	private String senha;
 
 	private String telefone;
+
+	//bi-directional many-to-one association to Obra
+	@OneToMany(mappedBy="usuario")
+	private List<Obra> obras;
 
 	public Usuario() {
 	}
@@ -158,6 +162,28 @@ public class Usuario implements Serializable {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public List<Obra> getObras() {
+		return this.obras;
+	}
+
+	public void setObras(List<Obra> obras) {
+		this.obras = obras;
+	}
+
+	public Obra addObra(Obra obra) {
+		getObras().add(obra);
+		obra.setUsuario(this);
+
+		return obra;
+	}
+
+	public Obra removeObra(Obra obra) {
+		getObras().remove(obra);
+		obra.setUsuario(null);
+
+		return obra;
 	}
 
 }

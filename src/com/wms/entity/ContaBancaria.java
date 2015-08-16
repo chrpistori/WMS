@@ -2,6 +2,7 @@ package com.wms.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -15,7 +16,6 @@ public class ContaBancaria implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_conta_bancaria")
 	private int idContaBancaria;
 
@@ -30,7 +30,16 @@ public class ContaBancaria implements Serializable {
 
 	//bi-directional many-to-one association to Banco
 	@ManyToOne
+	@JoinColumn(name="id_banco")
 	private Banco banco;
+
+	//bi-directional many-to-one association to Funcionario
+	@OneToMany(mappedBy="contaBancaria")
+	private List<Funcionario> funcionarios;
+
+	//bi-directional many-to-one association to Obra
+	@OneToMany(mappedBy="contaBancaria")
+	private List<Obra> obras;
 
 	public ContaBancaria() {
 	}
@@ -81,6 +90,50 @@ public class ContaBancaria implements Serializable {
 
 	public void setBanco(Banco banco) {
 		this.banco = banco;
+	}
+
+	public List<Funcionario> getFuncionarios() {
+		return this.funcionarios;
+	}
+
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
+	}
+
+	public Funcionario addFuncionario(Funcionario funcionario) {
+		getFuncionarios().add(funcionario);
+		funcionario.setContaBancaria(this);
+
+		return funcionario;
+	}
+
+	public Funcionario removeFuncionario(Funcionario funcionario) {
+		getFuncionarios().remove(funcionario);
+		funcionario.setContaBancaria(null);
+
+		return funcionario;
+	}
+
+	public List<Obra> getObras() {
+		return this.obras;
+	}
+
+	public void setObras(List<Obra> obras) {
+		this.obras = obras;
+	}
+
+	public Obra addObra(Obra obra) {
+		getObras().add(obra);
+		obra.setContaBancaria(this);
+
+		return obra;
+	}
+
+	public Obra removeObra(Obra obra) {
+		getObras().remove(obra);
+		obra.setContaBancaria(null);
+
+		return obra;
 	}
 
 }

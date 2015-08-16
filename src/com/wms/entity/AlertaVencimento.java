@@ -16,7 +16,6 @@ public class AlertaVencimento implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_alerta")
 	private int idAlerta;
 
@@ -40,6 +39,7 @@ public class AlertaVencimento implements Serializable {
 
 	//bi-directional many-to-one association to Conta
 	@ManyToOne
+	@JoinColumn(name="id_conta")
 	private Conta conta;
 
 	public AlertaVencimento() {

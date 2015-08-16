@@ -5,13 +5,30 @@
 	<persistence-unit name="WMS" transaction-type="RESOURCE_LOCAL">
 	
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		
 		<class>com.wms.entity.AlertaVencimento</class>
+		<class>com.wms.entity.Anexo</class>
+		<class>com.wms.entity.Banco</class>
+		<class>com.wms.entity.CategoriaMaterial</class>
+		<class>com.wms.entity.Cheque</class>
+		<class>com.wms.entity.Cidade</class>
 		<class>com.wms.entity.Cliente</class>
 		<class>com.wms.entity.Conta</class>
 		<class>com.wms.entity.ContaBancaria</class>
+		<class>com.wms.entity.DespesaGeral</class>
+		<class>com.wms.entity.EmpresaTerceirizada</class>
+		<class>com.wms.entity.Estado</class>
+		<class>com.wms.entity.Fase</class>
+		<class>com.wms.entity.FaseObra</class>
+		<class>com.wms.entity.Fornecedor</class>
+		<class>com.wms.entity.Funcao</class>
+		<class>com.wms.entity.Funcionario</class>
+		<class>com.wms.entity.Lancamento</class>
+		<class>com.wms.entity.Material</class>
+		<class>com.wms.entity.Obra</class>
+		<class>com.wms.entity.ParcelaCartaoCredito</class>
+		<class>com.wms.entity.Tarefa</class>
+		<class>com.wms.entity.TarefaObra</class>
 		<class>com.wms.entity.Usuario</class>
-		<class>com.wms.entity.Banco</class>
 
 		<properties>
 			<!-- dados da conexao -->
