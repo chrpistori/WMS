@@ -59,14 +59,6 @@ public class Conta implements Serializable {
 	@OneToMany(mappedBy="conta")
 	private List<Cheque> cheques;
 
-	//bi-directional many-to-many association to DespesaGeral
-	@ManyToMany(mappedBy="contas")
-	private List<DespesaGeral> despesaGerals;
-
-	//bi-directional many-to-many association to Funcionario
-	@ManyToMany(mappedBy="contas")
-	private List<Funcionario> funcionarios;
-
 	//bi-directional many-to-one association to Lancamento
 	@OneToMany(mappedBy="conta")
 	private List<Lancamento> lancamentos;
@@ -222,22 +214,6 @@ public class Conta implements Serializable {
 		cheque.setConta(null);
 
 		return cheque;
-	}
-
-	public List<DespesaGeral> getDespesaGerals() {
-		return this.despesaGerals;
-	}
-
-	public void setDespesaGerals(List<DespesaGeral> despesaGerals) {
-		this.despesaGerals = despesaGerals;
-	}
-
-	public List<Funcionario> getFuncionarios() {
-		return this.funcionarios;
-	}
-
-	public void setFuncionarios(List<Funcionario> funcionarios) {
-		this.funcionarios = funcionarios;
 	}
 
 	public List<Lancamento> getLancamentos() {

@@ -2,7 +2,6 @@ package com.wms.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -17,25 +16,20 @@ public class DespesaGeral implements Serializable {
 
 	@Id
 	@Column(name="id_despesa_geral")
-	private Integer idDespesaGeral;
+	private int idDespesaGeral;
 
 	private String descricao;
 
 	private String nome;
 
-	//bi-directional many-to-many association to Conta
-	@ManyToMany
-	@JoinColumn(name="id_despesa_geral")
-	private List<Conta> contas;
-
 	public DespesaGeral() {
 	}
 
-	public Integer getIdDespesaGeral() {
+	public int getIdDespesaGeral() {
 		return this.idDespesaGeral;
 	}
 
-	public void setIdDespesaGeral(Integer idDespesaGeral) {
+	public void setIdDespesaGeral(int idDespesaGeral) {
 		this.idDespesaGeral = idDespesaGeral;
 	}
 
@@ -53,14 +47,6 @@ public class DespesaGeral implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public List<Conta> getContas() {
-		return this.contas;
-	}
-
-	public void setContas(List<Conta> contas) {
-		this.contas = contas;
 	}
 
 }

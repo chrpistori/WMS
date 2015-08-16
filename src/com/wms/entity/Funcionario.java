@@ -4,7 +4,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 
 /**
@@ -47,11 +46,6 @@ public class Funcionario implements Serializable {
 	private BigDecimal salario;
 
 	private String telefone;
-
-	//bi-directional many-to-many association to Conta
-	@ManyToMany
-	@JoinColumn(name="id_funcionario")
-	private List<Conta> contas;
 
 	//bi-directional many-to-one association to ContaBancaria
 	@ManyToOne
@@ -177,14 +171,6 @@ public class Funcionario implements Serializable {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
-	}
-
-	public List<Conta> getContas() {
-		return this.contas;
-	}
-
-	public void setContas(List<Conta> contas) {
-		this.contas = contas;
 	}
 
 	public ContaBancaria getContaBancaria() {
