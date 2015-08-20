@@ -63,7 +63,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `wms_db`.`banco`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wms_db`.`banco` (
-  `id_banco` INT(11) NOT NULL COMMENT '',
+  `id_banco` INT(11) NOT NULL AUTO_INCREMENT COMMENT '',
   `nome_banco` VARCHAR(100) NOT NULL COMMENT '',
   PRIMARY KEY (`id_banco`)  COMMENT '')
 ENGINE = InnoDB
@@ -195,7 +195,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `wms_db`.`usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wms_db`.`usuario` (
-  `idUsuario` INT(11) NOT NULL COMMENT '',
+  `idUsuario` INT(11) NOT NULL AUTO_INCREMENT COMMENT '',
   `nome` VARCHAR(100) NOT NULL COMMENT '',
   `login` VARCHAR(45) NOT NULL COMMENT '',
   `senha` VARCHAR(45) NOT NULL COMMENT '',
@@ -285,7 +285,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `wms_db`.`parcela_cartao_credito`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wms_db`.`parcela_cartao_credito` (
-  `id_parcela` INT(11) NOT NULL COMMENT '',
+  `id_parcela` INT(11) NOT NULL AUTO_INCREMENT COMMENT '',
   `n_parcela` DECIMAL(10,0) NOT NULL COMMENT '',
   `data_vencimento` DATE NOT NULL COMMENT '',
   `valor_parcela` DECIMAL(10,0) NOT NULL COMMENT '',
@@ -341,7 +341,7 @@ COMMENT = '		';
 -- Table `wms_db`.`estado`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wms_db`.`estado` (
-  `id_estado` INT(11) NOT NULL COMMENT '',
+  `id_estado` INT(11) NOT NULL AUTO_INCREMENT COMMENT '',
   `abreviacao` VARCHAR(2) NOT NULL COMMENT '',
   `nome` VARCHAR(255) NOT NULL COMMENT '',
   PRIMARY KEY (`id_estado`)  COMMENT '')
@@ -353,7 +353,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `wms_db`.`cidade`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wms_db`.`cidade` (
-  `id_cidade` INT(11) NOT NULL COMMENT '',
+  `id_cidade` INT(11) NOT NULL AUTO_INCREMENT COMMENT '',
   `nome` VARCHAR(255) NOT NULL COMMENT '',
   `id_estado` INT(11) NOT NULL COMMENT '',
   PRIMARY KEY (`id_cidade`)  COMMENT '',
@@ -567,7 +567,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `wms_db`.`conta_has_despesa_geral`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `wms_db`.`conta_has_despesa_geral` (
-  `id_conta` INT(11) NOT NULL COMMENT '',
+  `id_conta` INT(11) NOT NULL AUTO_INCREMENT COMMENT '',
   `id_despesa_geral` INT(11) NOT NULL COMMENT '',
   INDEX `fk_conta_has_despesa_geral_despesa_geral1_idx` (`id_despesa_geral` ASC)  COMMENT '',
   INDEX `fk_conta_has_despesa_geral_conta1_idx` (`id_conta` ASC)  COMMENT '',
